@@ -1,5 +1,18 @@
 namespace StringLib {
-    // ---- String methods ----
+
+    // ===== Enums =====
+    export enum PadDirection {
+        Start,
+        End
+    }
+
+    export enum JoinSeparator {
+        Comma = ",",
+        Dash = "-",
+        Space = " "
+    }
+
+    // ===== String Methods =====
     export function startsWith(str: string, prefix: string): boolean {
         return str.substr(0, prefix.length) == prefix
     }
@@ -20,23 +33,19 @@ namespace StringLib {
         return str.indexOf(search) != -1
     }
 
-    export function padStart(str: string, length: number, pad: string = " "): string {
+    export function pad(str: string, length: number, padChar: string = " ", dir: PadDirection = PadDirection.Start): string {
         let result = str
         while (result.length < length) {
-            result = pad + result
+            if (dir == PadDirection.Start) {
+                result = padChar + result
+            } else {
+                result += padChar
+            }
         }
         return result
     }
 
-    export function padEnd(str: string, length: number, pad: string = " "): string {
-        let result = str
-        while (result.length < length) {
-            result += pad
-        }
-        return result
-    }
-
-    // ---- Array methods ----
+    // ===== Array Methods =====
     export function includesArray<T>(arr: T[], value: T): boolean {
         for (let i = 0; i < arr.length; i++) {
             if (arr[i] == value) return true
@@ -58,7 +67,7 @@ namespace StringLib {
         return -1
     }
 
-    export function joinArray<T>(arr: T[], sep: string = ","): string {
+    export function joinArray<T>(arr: T[], sep: JoinSeparator = JoinSeparator.Comma): string {
         let result = ""
         for (let i = 0; i < arr.length; i++) {
             result += arr[i]
