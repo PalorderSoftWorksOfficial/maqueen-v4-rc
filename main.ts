@@ -1,3 +1,4 @@
+// Typescript syntax is ass
 radio.onReceivedString(function (msg) {
     if (msg == "forward") {
         maqueen.motorRun(maqueen.Motors.All, maqueen.Dir.CW, 255)
