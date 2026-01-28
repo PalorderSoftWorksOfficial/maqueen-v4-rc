@@ -8,7 +8,8 @@
         "microphone": "*",
         "maqueen": "github:dfrobot/pxt-maqueen#v1.7.16",
         "datalogger": "*",
-        "servo": "*"
+        "servo": "*",
+        "PalorderSoftWorksPacketLib": "pkg:PalorderSoftWorksPacketLib.json"
     },
     "files": [
         "main.blocks",
